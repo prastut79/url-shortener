@@ -47,13 +47,13 @@ const UrlForm = () => {
 		}
 		const res = await addUrl(formData);
 
-		if (res.error) {
+		if (res?.error) {
 			toast.error(res.message || "Something Went Wrong.");
 		} else {
 			toast.success(res.message || "Sucessfully added Link");
 
 			/**Adding URL to local storage */
-			if (res.url) {
+			if (res?.url) {
 				const urls = saveUrl(res.url);
 				if (urls) {
 					urlContext?.setUrls(urls);
