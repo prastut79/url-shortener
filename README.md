@@ -17,7 +17,7 @@ URL Shortener is a web application that allows users to shorten long URLs. It's 
 
 ## Demo
 
-You can check out a live demo of the URL Shortener [here](url-shortener.prastut.com.np).
+You can check out a live demo of the URL Shortener [here](https://url-shortener.prastut.com.np).
 
 ## Usage
 
