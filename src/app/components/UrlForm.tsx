@@ -48,9 +48,9 @@ const UrlForm = () => {
 		const res = await addUrl(formData);
 
 		if (res.error) {
-			toast.error(res.message ?? "Something Went Wrong.");
+			toast.error(res.message || "Something Went Wrong.");
 		} else {
-			toast.success(res.message ?? "Sucessfully added Link");
+			toast.success(res.message || "Sucessfully added Link");
 
 			/**Adding URL to local storage */
 			if (res.url) {

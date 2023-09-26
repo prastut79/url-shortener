@@ -11,9 +11,7 @@ export const connectDb = async () => {
 	}
 
 	try {
-		const conn = await mongoose.connect(
-			"mongodb+srv://zerotakumi79:pbBpHVhss6QDQDDu@url-shortner.msmvt0m.mongodb.net/url_shortner"
-		);
+		const conn = await mongoose.connect(process.env.MONGO_URI!);
 
 		console.log(`MongoDB Connected: ${conn.connection.host}`);
 

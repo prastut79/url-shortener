@@ -6,7 +6,7 @@ import TBody from "./atoms/TableRaw/TBody";
 import Td from "./atoms/TableRaw/Td";
 import { UrlType } from "../types";
 import { getTimeAgo } from "../utils/dateFormat";
-import { URL_KEY, UrlContext } from "./UrlProvider";
+import { UrlContext } from "./UrlProvider";
 
 const header = ["Sn", "Url", "Shorten URL", "Added On"];
 
@@ -68,7 +68,7 @@ export default function UrlList() {
 					</p>
 				</>
 			) : (
-				<div className="fc_xy font-bold  text-tp italic py-14">
+				<div className="fc_xy font-bold  text-tp  py-14">
 					No Links Added
 				</div>
 			)}

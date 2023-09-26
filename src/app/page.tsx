@@ -1,10 +1,12 @@
 import UrlForm from "./components/UrlForm";
-import "react-toastify/dist/ReactToastify.min.css";
+
 import UrlList from "./components/UrlList";
 import UrlProvider from "./components/UrlProvider";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+import "react-toastify/dist/ReactToastify.min.css";
 import "./globals.css";
+
 import { Nunito } from "next/font/google";
 
 const nunito = Nunito({
@@ -15,7 +17,7 @@ const nunito = Nunito({
 
 export const metadata = {
 	title: "Url Shortener",
-	description: "A simple URL-Shortner Service.",
+	description: "A simple URL-Shortener Service.",
 };
 
 export default function Home() {
