@@ -4,7 +4,10 @@ export default function Td({
 	...props
 }: React.HTMLAttributes<HTMLTableCellElement>) {
 	return (
-		<td className={`p-4 max-w-sm ${className ? className : ""}`} {...props}>
+		<td
+			className={`p-4 max-w-xs truncate  ${className ? className : ""}`}
+			{...props}
+		>
 			{children}
 		</td>
 	);

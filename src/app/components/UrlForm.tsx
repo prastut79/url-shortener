@@ -68,7 +68,7 @@ const UrlForm = () => {
 		urlContext?.urls?.length >= DAILY_URL_LIMIT
 	) {
 		return (
-			<div className="fc_xy font-bold text-red-300 py-14 text-center">
+			<div className="fc_xy font-bold text-red-300 py-14 text-">
 				You have reached your limit for today. Please come back
 				tommorrow.
 			</div>
