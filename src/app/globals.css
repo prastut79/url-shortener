@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+	.fc_xy {
+		@apply flex items-center justify-center;
+	}
+	.fc_y {
+		@apply flex justify-center;
+	}
+	.fc_x {
+		@apply flex items-center;
+	}
+	.bc_x {
+		@apply active:!translate-y-[2px] active:opacity-40;
+	}
+}
+
+:root {
+	--c-theme: 2, 132, 199;
+	--c-bg: 17, 24, 39;
+	--c-bg-pri: 31, 41, 55;
+	--c-bg-sec: 55, 65, 81;
+	--c-bg-light: 55, 65, 81;
+	--c-txt: 255, 255, 255;
+	--c-txt-pri: 250, 250, 250;
+	--c-txt-sec: 156, 163, 175;
+	--c-txt-light: 116, 136, 153;
+	--c-error: 255, 107, 107;
+	--c-txt-btn: 255, 255, 255;
+	--box-shadow: 0px 0px 5px 0.1px rgba(var(--c-txt-rgb), 0.1);
+}
+
+* {
+	box-sizing: border-box;
+}
+body {
+	@apply bg-b !tracking-[0.2px];
+}
+
+.Toastify__toast {
+	@apply min-h-[52px] font-bold text-tp bg-bp text-[15px] font-nunito mb-3 shadow-md shadow-bp border border-bl/50;
+}
+.Toastify__toast--error {
+	@apply text-red-500;
+}
+.Toastify__toast--success {
+	@apply text-green-500;
+}
