@@ -4,12 +4,12 @@ import { toast } from "react-toastify";
 import { addUrl } from "../actions";
 import Input from "./atoms/Input";
 import { SubmitButton } from "./atoms/SubmitButton";
-import { URL_KEY, UrlContext } from "./UrlProvider";
+import { URL_KEY, UrlContext, getRecentLinks } from "./UrlProvider";
 import { useContext, useEffect, useState } from "react";
 import { UrlType } from "../types";
 
 /**Daily Url SHorten Limit */
-const DAILY_URL_LIMIT = 20;
+const DAILY_URL_LIMIT = 10;
 
 function saveUrl(url: UrlType) {
 	/**Function to save added URL to local storage */
@@ -18,14 +18,7 @@ function saveUrl(url: UrlType) {
 			localStorage.getItem(URL_KEY) ?? "[]"
 		) as UrlType[];
 
-		/**Get Date of a day ago */
-		const today = new Date();
-		today.setDate(today.getDate() - 1);
-
-		/**FIlter the Urls */
-		const data = temp.filter(({ createdAt }) => {
-			return new Date(createdAt!) > today;
-		});
+		const data = getRecentLinks(temp);
 
 		data.unshift(url);
 

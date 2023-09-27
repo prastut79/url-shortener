@@ -12,4 +12,3 @@ export default function Td({
 		</td>
 	);
 }
-// text-tp font-bold

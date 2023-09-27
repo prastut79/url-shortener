@@ -1,10 +1,9 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import Table from "./atoms/TableRaw/Table";
 import TBody from "./atoms/TableRaw/TBody";
 import Td from "./atoms/TableRaw/Td";
-import { UrlType } from "../types";
 import { getTimeAgo } from "../utils/dateFormat";
 import { UrlContext } from "./UrlProvider";
 
@@ -16,7 +15,7 @@ export default function UrlList() {
 	return (
 		<div>
 			<h3 className="font-extrabold text-ts pb-4">Recently Added URLs</h3>
-			{url?.urls ? (
+			{url?.urls && url?.urls.length > 0 ? (
 				<>
 					<Table>
 						<thead className="text-[13px] w-full sticky top-0 z-20 text-ts uppercase bg-bl font-bold select-none">

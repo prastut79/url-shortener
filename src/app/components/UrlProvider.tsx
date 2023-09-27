@@ -11,6 +11,18 @@ export const UrlContext = createContext<{
 	urls: UrlType[] | undefined;
 } | null>(null);
 
+export function getRecentLinks(temp: UrlType[]) {
+	/**Get Date of a day ago */
+	const today = new Date();
+	today.setDate(today.getDate() - 1);
+
+	/**FIlter the Urls */
+	const data = temp.filter(({ createdAt }) => {
+		return new Date(createdAt!) > today;
+	});
+	return data;
+}
+
 export default function UrlProvider({ children }: PropsWithChildren<any>) {
 	const [urls, setUrls] = useState<UrlType[]>();
 
@@ -19,7 +31,9 @@ export default function UrlProvider({ children }: PropsWithChildren<any>) {
 			const data = localStorage.getItem(URL_KEY);
 
 			if (data) {
-				const urls = JSON.parse(data);
+				const temp = JSON.parse(data);
+				const urls = getRecentLinks(temp);
+
 				setUrls(urls);
 			}
 		} catch (e) {}
