@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { UrlType } from "../types";
-import { API_URL, URL_SHORT_SIZE } from "../utils/config";
+import { API_URL, URL_SHORT_MAX_SIZE, URL_SHORT_SIZE } from "../utils/config";
 
 function getUrl(slug: string) {
 	const req = fetch(API_URL + "?short=" + slug, { cache: "no-store" });
@@ -11,10 +11,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
 	var message = "Link Expired or Invalid";
 	var long;
 
-	if (params.slug?.length === URL_SHORT_SIZE) {
+	if (params.slug?.length < URL_SHORT_MAX_SIZE + 1) {
 		try {
 			const res = await getUrl(params.slug);
-
 			if (res.ok) {
 				const data = (await res.json()) as { url: UrlType };
 

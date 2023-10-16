@@ -7,9 +7,9 @@ import { SubmitButton } from "./atoms/SubmitButton";
 import { URL_KEY, UrlContext, getRecentLinks } from "./UrlProvider";
 import { useContext, useEffect, useState } from "react";
 import { UrlType } from "../types";
+import { DAILY_URL_LIMIT } from "../utils/config";
 
 /**Daily Url SHorten Limit */
-const DAILY_URL_LIMIT = 10;
 
 function saveUrl(url: UrlType) {
 	/**Function to save added URL to local storage */
@@ -71,8 +71,13 @@ const UrlForm = () => {
 	return (
 		<form action={formSubmit}>
 			<h3 className="text-ts font-extrabold">Create Link</h3>
-			<div className="py-4">
+			<div className="py-4 grid w-full gap-4">
 				<Input label="Long URL" name="long" required type="url" />
+				<Input
+					label="Short Alias (Optional)"
+					name="short"
+					maxLength={8}
+				/>
 			</div>
 			<div className="flex justify-end">
 				<SubmitButton />

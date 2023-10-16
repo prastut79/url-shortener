@@ -10,7 +10,7 @@ export function getMongooseErrors(err: any) {
 	} else if (err.code === 11000) {
 		const key = Object.keys(err.keyValue)[0];
 		validationErrors.push(
-			`Record with ${key}: ${err.keyValue[key]}, already exists.`
+			`Record with ${key} alias: ${err.keyValue[key]}, already exists.`
 		);
 	}
 	return validationErrors.join("\n");
